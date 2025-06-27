@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILCDB Procurement System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Signature Pad Library -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-item">
+                        <div class="logo-icon">🏛️</div>
+                        <span>ILCDB</span>
+                    </div>
+                    <div class="logo-divider"></div>
+                    <div class="logo-item">
+                        <div class="logo-icon">💻</div>
+                        <span>DTC</span>
+                    </div>
+                    <div class="logo-divider"></div>
+                    <div class="logo-item">
+                        <div class="logo-icon">⚡</div>
+                        <span>SPARK</span>
+                    </div>
+                </div>
+                <h1 class="header-title">
+                    <span class="title-main">Digital Procurement</span>
+                    <span class="title-sub">System</span>
+                </h1>
+                <p class="header-description">Streamlined document processing with digital signatures</p>
+            </div>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-wrapper">
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step-item active" data-step="1">
+                    <div class="step-circle">
+                        <div class="step-icon">📋</div>
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="step-info">
+                        <span class="step-title">Requirements</span>
+                        <span class="step-desc">Select items</span>
+                    </div>
+                </div>
+                <div class="step-item" data-step="2">
+                    <div class="step-circle">
+                        <div class="step-icon">✍️</div>
+                        <div class="step-number">2</div>
+                    </div>
+                    <div class="step-info">
+                        <span class="step-title">Submitter</span>
+                        <span class="step-desc">Your details</span>
+                    </div>
+                </div>
+                <div class="step-item" data-step="3">
+                    <div class="step-circle">
+                        <div class="step-icon">👤</div>
+                        <div class="step-number">3</div>
+                    </div>
+                    <div class="step-info">
+                        <span class="step-title">Receiver</span>
+                        <span class="step-desc">Recipient info</span>
+                    </div>
+                </div>
+                <div class="step-item" data-step="4">
+                    <div class="step-circle">
+                        <div class="step-icon">📄</div>
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="step-info">
+                        <span class="step-title">Summary</span>
+                        <span class="step-desc">Review & download</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1: Requirements Selection -->
+        <div class="step-content active" id="step1">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="header-icon">📋</div>
+                    <div class="header-text">
+                        <h2>Project Requirements</h2>
+                        <p>Configure your procurement document</p>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <!-- Project Type Selection -->
+                    <div class="input-group">
+                        <label class="input-label">
+                            <span class="label-text">Project Type</span>
+                            <span class="label-required">*</span>
+                        </label>
+                        <div class="radio-grid">
+                            <label class="radio-card">
+                                <input type="radio" name="project" value="ILCDB-DWIA" required>
+                                <div class="radio-content">
+                                    <div class="radio-icon">🏛️</div>
+                                    <span class="radio-label">ILCDB-DWIA</span>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="project" value="SPARK" required>
+                                <div class="radio-content">
+                                    <div class="radio-icon">⚡</div>
+                                    <span class="radio-label">SPARK</span>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="project" value="TECH4ED-DTC" required>
+                                <div class="radio-content">
+                                    <div class="radio-icon">💻</div>
+                                    <span class="radio-label">TECH4ED-DTC</span>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="project" value="PROJECT CLICK" required>
+                                <div class="radio-content">
+                                    <div class="radio-icon">🖱️</div>
+                                    <span class="radio-label">PROJECT CLICK</span>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="project" value="OTHERS" required>
+                                <div class="radio-content">
+                                    <div class="radio-icon">📁</div>
+                                    <span class="radio-label">OTHERS</span>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </label>
+                        </div>
+                        <div class="error-message" id="projectError"></div>
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Project Activity</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="activity" class="modern-input" placeholder="Describe the procurement activity" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="activityError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Amount</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <div class="input-prefix">₱</div>
+                                <input type="number" id="amount" class="modern-input with-prefix" placeholder="0.00" step="0.01" min="0" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="amountError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">PR Number</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="prNumber" class="modern-input" placeholder="2025-XXXX" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="prNumberError"></div>
+                        </div>
+                    </div>
+
+                    <!-- Requirements Selection -->
+                    <div class="requirements-section">
+                        <div class="section-title">
+                            <div class="title-icon">📝</div>
+                            <div class="title-content">
+                                <h3>Pre-Procurement Requirements</h3>
+                                <p>Select applicable documents needed before procurement</p>
+                            </div>
+                        </div>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="APP/PPMP">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">APP / PPMP</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="SARO">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">SARO</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Budget Breakdown">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Budget Breakdown</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Distribution List">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Distribution List</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="POI/Activity Design">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">POI / Activity Design</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Market Research">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Market Research</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Purchase Request">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Purchase Request</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Quotations">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Quotations</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Purchase Order">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Purchase Order</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="preReq" value="Abstract/Philgeps posting">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Abstract / Philgeps</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="section-title">
+                            <div class="title-icon">📋</div>
+                            <div class="title-content">
+                                <h3>Post-Procurement Requirements</h3>
+                                <p>Select applicable documents needed after procurement</p>
+                            </div>
+                        </div>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="ORS">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">ORS</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Purchase Order">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Purchase Order</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Attendance">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Attendance</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Certificate of Completion">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Certificate of Completion</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Photos">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Photos</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="SOA/Billing Statement">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">SOA / Billing Statement</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Delivery Receipt">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Delivery Receipt</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="Distribution List (Receiving)">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">Distribution List (Receiving)</span>
+                                </div>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="postReq" value="DV">
+                                <div class="checkbox-content">
+                                    <div class="checkbox-indicator"></div>
+                                    <span class="checkbox-label">DV</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-primary" onclick="nextStep()">
+                        <span class="btn-text">Continue</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Submitter Information -->
+        <div class="step-content" id="step2">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="header-icon">✍️</div>
+                    <div class="header-text">
+                        <h2>Submitter Information</h2>
+                        <p>Provide your details and digital signature</p>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Full Name</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="submitterName" class="modern-input" placeholder="Enter your full name" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="submitterNameError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Position/Unit</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="submitterPosition" class="modern-input" placeholder="Your position or unit">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Date</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="date" id="submitterDate" class="modern-input" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="submitterDateError"></div>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <label class="input-label">
+                            <span class="label-text">Digital Signature</span>
+                            <span class="label-required">*</span>
+                        </label>
+                        <div class="signature-pad">
+                            <canvas id="submitterSignature" class="signature-canvas"></canvas>
+                            <div class="signature-overlay" id="submitterSignatureOverlay">
+                                <div class="signature-placeholder">
+                                    <div class="placeholder-icon">✍️</div>
+                                    <div class="placeholder-text">Sign here with your mouse or finger</div>
+                                    <div class="placeholder-hint">Smooth, professional signature capture</div>
+                                </div>
+                            </div>
+                            <div class="signature-controls">
+                                <button type="button" class="signature-clear" onclick="clearSignature('submitter')">
+                                    <span class="clear-icon">🗑️</span>
+                                    Clear
+                                </button>
+                                <button type="button" class="signature-undo" onclick="undoSignature('submitter')">
+                                    <span class="undo-icon">↶</span>
+                                    Undo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="error-message" id="submitterSignatureError"></div>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-secondary" onclick="prevStep()">
+                        <div class="btn-icon">←</div>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button class="btn-primary" onclick="nextStep()">
+                        <span class="btn-text">Continue</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Receiver Information -->
+        <div class="step-content" id="step3">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="header-icon">👤</div>
+                    <div class="header-text">
+                        <h2>Receiver Information</h2>
+                        <p>Provide receiver details and signature</p>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Full Name</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="receiverName" class="modern-input" placeholder="Enter receiver's full name" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="receiverNameError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Position/Unit</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="receiverPosition" class="modern-input" placeholder="Receiver's position or unit">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="label-text">Date</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="date" id="receiverDate" class="modern-input" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="error-message" id="receiverDateError"></div>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <label class="input-label">
+                            <span class="label-text">Digital Signature</span>
+                            <span class="label-required">*</span>
+                        </label>
+                        <div class="signature-pad">
+                            <canvas id="receiverSignature" class="signature-canvas"></canvas>
+                            <div class="signature-overlay" id="receiverSignatureOverlay">
+                                <div class="signature-placeholder">
+                                    <div class="placeholder-icon">✍️</div>
+                                    <div class="placeholder-text">Sign here with your mouse or finger</div>
+                                    <div class="placeholder-hint">Smooth, professional signature capture</div>
+                                </div>
+                            </div>
+                            <div class="signature-controls">
+                                <button type="button" class="signature-clear" onclick="clearSignature('receiver')">
+                                    <span class="clear-icon">🗑️</span>
+                                    Clear
+                                </button>
+                                <button type="button" class="signature-undo" onclick="undoSignature('receiver')">
+                                    <span class="undo-icon">↶</span>
+                                    Undo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="error-message" id="receiverSignatureError"></div>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-secondary" onclick="prevStep()">
+                        <div class="btn-icon">←</div>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button class="btn-primary" onclick="generateSummary()">
+                        <span class="btn-text">Generate Summary</span>
+                        <div class="btn-icon">✓</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Summary -->
+        <div class="step-content" id="step4">
+            <div class="glass-card">
+                <div class="card-header">
+                    <div class="header-icon">📄</div>
+                    <div class="header-text">
+                        <h2>Document Summary</h2>
+                        <p>Review and download your procurement document</p>
+                    </div>
+                </div>
+                
+                <div id="summaryContent" class="summary-content"></div>
+                
+                <div class="card-actions">
+                    <button class="btn-secondary" onclick="prevStep()">
+                        <div class="btn-icon">←</div>
+                        <span class="btn-text">Edit</span>
+                    </button>
+                    <button class="btn-primary" onclick="downloadPDF()">
+                        <div class="btn-icon">📄</div>
+                        <span class="btn-text">Download PDF</span>
+                    </button>
+                    <button class="btn-outline" onclick="startOver()">
+                        <div class="btn-icon">🔄</div>
+                        <span class="btn-text">New Document</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
