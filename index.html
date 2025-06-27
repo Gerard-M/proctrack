@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILCDB Procurement Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <div class="flag-accent"></div>
+                        <h1>ILCDB</h1>
+                        <p>ICT LITERACY AND COMPETENCY DEVELOPMENT BUREAU</p>
+                        <div class="project-badges">
+                            <span class="badge badge-blue">DIGITAL TRANSFORMATION CENTERS</span>
+                            <span class="badge badge-red">TECH4ED</span>
+                            <span class="badge badge-yellow">SPARK PROJECT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Landing Page -->
+        <section id="landing-page" class="page active">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--gray-800); font-size: 1.5rem;">Procurement Management System</h2>
+                <div class="landing-options">
+                    <div class="search-section">
+                        <h3>🔍 Search Existing Procurement</h3>
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="Search by PR number or procurement title..." autocomplete="off">
+                            <div id="search-results" class="search-results"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="divider">OR</div>
+                    
+                    <div class="create-section">
+                        <h3>➕ Create New Procurement</h3>
+                        <button id="create-new-btn" class="btn btn-primary">Create New Procurement</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Procurement Form -->
+        <section id="new-procurement-form" class="page">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--gray-800); font-size: 1.5rem;">Create New Procurement</h2>
+                <form id="procurement-form" class="form">
+                    <div class="form-group">
+                        <label for="activity-title">Activity/Procurement Title *</label>
+                        <input type="text" id="activity-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Amount *</label>
+                        <input type="number" id="amount" step="0.01" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pr-number">PR Number * <span class="format-hint">(Format: YYYY-NN-NN)</span></label>
+                        <input type="text" id="pr-number" pattern="^\d{4}-\d{2}-\d{2}$" placeholder="2025-01-01" required maxlength="10">
+                        <div id="pr-error" class="error-message"></div>
+                        <div class="help-text">Example: 2025-01-01</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Project Type *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="project-type" value="supplies" required>
+                                <span>Supplies</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="project-type" value="services" required>
+                                <span>Services</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="project-type" value="infrastructure" required>
+                                <span>Infrastructure</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" id="back-to-landing" class="btn btn-secondary">Back to Landing Page</button>
+                        <button type="submit" class="btn btn-primary">Create & Start Pre-Procurement</button>
+                    </div>
+                </form>
+                <div id="validation-messages" class="validation-messages"></div>
+            </div>
+        </section>
+
+        <!-- Pre-Procurement Phases -->
+        <section id="pre-procurement" class="page">
+            <div class="container">
+                <div class="progress-header">
+                    <h2 id="phase-title">Pre-Procurement Phase 1</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">Phase 1 of 6</p>
+                </div>
+
+                <!-- Phase Content -->
+                <div class="phase-content">
+                    <div id="phase-validation" class="phase-validation">
+                        <h4>Please complete the following before proceeding:</h4>
+                        <ul id="validation-list"></ul>
+                    </div>
+
+                    <div class="phase-content-grid">
+                        <div class="checklist-section">
+                            <h3>Requirements Checklist</h3>
+                            <div id="checklist" class="checklist"></div>
+                        </div>
+
+                        <div class="signature-sections">
+                            <div class="signature-section" id="submitted-section">
+                                <h4>Submitted By</h4>
+                                <div class="form-group">
+                                    <label>Name:</label>
+                                    <input type="text" id="submitted-by-name" placeholder="Enter name" required>
+                                </div>
+                                <div class="signature-pad-container">
+                                    <label>Signature:</label>
+                                    <canvas id="submitted-signature" class="signature-pad" width="250" height="80"></canvas>
+                                    <button type="button" class="btn btn-small" onclick="clearSignature('submitted-signature')">Clear</button>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <input type="date" id="submitted-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Remarks:</label>
+                                    <textarea id="submitted-remarks" rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="signature-section" id="received-section">
+                                <h4>Received By</h4>
+                                <div class="form-group">
+                                    <label>Name:</label>
+                                    <input type="text" id="received-by-name" placeholder="Enter name" required>
+                                </div>
+                                <div class="signature-pad-container">
+                                    <label>Signature:</label>
+                                    <canvas id="received-signature" class="signature-pad" width="250" height="80"></canvas>
+                                    <button type="button" class="btn btn-small" onclick="clearSignature('received-signature')">Clear</button>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <input type="date" id="received-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Remarks:</label>
+                                    <textarea id="received-remarks" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-actions">
+                        <button type="button" id="back-to-landing-phase" class="btn btn-secondary">Back to Landing Page</button>
+                        <button type="button" id="view-progress" class="btn btn-outline">View Full Progress</button>
+                        <button type="button" id="continue-phase" class="btn btn-primary">Continue to Next Phase</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress View -->
+        <section id="progress-view" class="page">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 1rem; color: var(--gray-800); font-size: 1.5rem;">Procurement Progress</h2>
+                <div id="progress-details" class="progress-details"></div>
+                <div class="progress-actions">
+                    <button type="button" id="back-from-progress" class="btn btn-secondary">Back</button>
+                    <button type="button" id="download-pdf" class="btn btn-primary">Download PDF Summary</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completion Modal -->
+        <div id="completion-modal" class="completion-modal">
+            <div class="completion-content">
+                <div class="completion-header">
+                    <div class="completion-icon">✅</div>
+                    <h2>Procurement Process Completed!</h2>
+                    <p>All phases have been successfully completed for this procurement.</p>
+                </div>
+                
+                <div class="completion-details">
+                    <div class="completion-summary">
+                        <h3 id="completion-title">Procurement Title</h3>
+                        <div class="completion-info">
+                            <div class="info-item">
+                                <span class="label">PR Number:</span>
+                                <span id="completion-pr-number">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Amount:</span>
+                                <span id="completion-amount">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Project Type:</span>
+                                <span id="completion-project-type">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Completed:</span>
+                                <span id="completion-date">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="completion-actions">
+                    <button type="button" id="completion-view-progress" class="btn btn-outline">View Full Progress</button>
+                    <button type="button" id="completion-download-pdf" class="btn btn-primary">Download PDF Summary</button>
+                    <button type="button" id="completion-close" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
